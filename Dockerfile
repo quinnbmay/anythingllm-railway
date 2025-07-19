@@ -1,5 +1,8 @@
 FROM mintplexlabs/anythingllm:latest
 
+# Cache bust - force rebuild
+ENV REBUILD_DATE=2024-01-19-1145
+
 # Set required environment variables
 ENV STORAGE_DIR=/app/server/storage
 ENV SERVER_PORT=3001
