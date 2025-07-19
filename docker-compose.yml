@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  anythingllm:
+    image: mintplexlabs/anythingllm:latest
+    container_name: anythingllm
+    ports:
+      - "3001:3001"
+    environment:
+      - STORAGE_DIR=/app/server/storage
+      - SERVER_PORT=3001
+      - JWT_SECRET=${JWT_SECRET:-your-secret-key-here}
+      - AUTH_TOKEN=${AUTH_TOKEN:-your-auth-token-here}
+    volumes:
+      - anythingllm_storage:/app/server/storage
+      - ./anythingllm_mcp_servers.json:/app/server/storage/plugins/anythingllm_mcp_servers.json
+    restart: unless-stopped
+
+volumes:
+  anythingllm_storage:
+    driver: local
