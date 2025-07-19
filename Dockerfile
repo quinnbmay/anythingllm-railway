@@ -3,6 +3,7 @@ FROM mintplexlabs/anythingllm:latest
 # Set required environment variables
 ENV STORAGE_DIR=/app/server/storage
 ENV SERVER_PORT=3001
+ENV PORT=3001
 
 # Create storage directories
 RUN mkdir -p /app/server/storage/plugins
